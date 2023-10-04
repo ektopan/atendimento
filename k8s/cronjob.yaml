@@ -27,4 +27,3 @@ spec:
   startingDeadlineSeconds: 240
   successfulJobsHistoryLimit: 3
   suspend: false
-status: {}
