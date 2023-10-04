@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: assistance-job-02
+  name: assistance-job-01
   namespace: atendimento
   labels:
     service: cronjob
@@ -18,7 +18,7 @@ spec:
       template:
         metadata:
           labels:
-        service: cronjob
+        environment: development
         spec:
           restartPolicy: "OnFailure"
           containers:
