@@ -60,7 +60,6 @@ spec:
         environment: development
         metadata:
           creationTimestamp: null
-        service: cronjob
         spec:
           containers:
               image: >-
