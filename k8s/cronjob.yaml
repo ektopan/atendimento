@@ -60,7 +60,7 @@ spec:
         environment: development
         metadata:
           creationTimestamp: null
-        service: cronjob
+        #service: cronjob
         spec:
           containers:
             - envFrom:
