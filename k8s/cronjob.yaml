@@ -1,19 +1,40 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello
+  name: assistance-job-01
+  namespace: atendimento
+  labels:
+    app.kubernetes.io/instance: assistance-job-01
+    environment: development
+    service: cronjob
+  managedFields:
 spec:
-  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
   jobTemplate:
+    metadata:
+      creationTimestamp: null
     spec:
       template:
+        environment: development
+        metadata:
+          creationTimestamp: null
+        service: cronjob
         spec:
           containers:
-          - name: hello
-            image: busybox:1.28
-            imagePullPolicy: IfNotPresent
-            command:
-            - /bin/sh
-            - -c
-            - date; echo Hello from the Kubernetes cluster
+              image: 341852639037.dkr.ecr.us-east-1.amazonaws.com/assistance-job:latest
+              imagePullPolicy: IfNotPresent
+              name: cronjob
+              resources: {}
+              terminationMessagePath: /dev/termination-log
+              terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
           restartPolicy: OnFailure
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+  schedule: 0 7 * * *
+  startingDeadlineSeconds: 240
+  successfulJobsHistoryLimit: 3
+  suspend: false
+status: {}
