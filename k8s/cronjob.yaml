@@ -1,15 +1,25 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: assistance-job-0202
+  name: assistance-job-01
   namespace: atendimento
+  labels:
+    app.kubernetes.io/instance: assistance-job-01
+    environment: development
+    service: cronjob
+  managedFields:
 spec:
+  concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 3
   jobTemplate:
     metadata:
       creationTimestamp: null
     spec:
       template:
+        environment: development
+        metadata:
+          creationTimestamp: null
+        service: cronjob
         spec:
           containers:
           - name: cronjob
@@ -27,3 +37,4 @@ spec:
   startingDeadlineSeconds: 240
   successfulJobsHistoryLimit: 3
   suspend: false
+status: {}
