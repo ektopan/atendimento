@@ -4,7 +4,7 @@ metadata:
   name: assistance-job-01
   namespace: atendimento
   labels:
-    app.kubernetes.io/instance: assistance-job-01
+    app.kubernetes.io/instance: assistance-job-02
     environment: development
     service: cronjob
   managedFields:
