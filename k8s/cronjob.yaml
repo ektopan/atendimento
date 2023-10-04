@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: assistance-job-01
+  name: assistance-job-02
   namespace: atendimento
   labels:
     app.kubernetes.io/instance: assistance-job-02
