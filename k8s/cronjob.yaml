@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   generation: 1
   labels:
-    app.kubernetes.io/instance: assistance-job
+    app.kubernetes.io/instance: assistance-job-01
     environment: development
     service: cronjob
   managedFields:
@@ -45,7 +45,7 @@ metadata:
       manager: argocd-application-controller
       operation: Update
       time: '2023-10-04T16:35:01Z'
-  name: assistance-job
+  name: assistance-job-01
   namespace: atendimento
   resourceVersion: '67089334'
   uid: 8fd9f55a-d269-4b1c-a54a-e35b8b683784
@@ -65,9 +65,9 @@ spec:
           containers:
             - envFrom:
                 - configMapRef:
-                    name: assistance-job
+                    name: assistance-job-01
                 - secretRef:
-                    name: assistance-job
+                    name: assistance-job-01
               image: >-
                 341852639037.dkr.ecr.us-east-1.amazonaws.com/assistance-job:latest
               imagePullPolicy: IfNotPresent
