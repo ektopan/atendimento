@@ -3,11 +3,6 @@ kind: CronJob
 metadata:
   name: assistance-job-01
   namespace: atendimento
-  labels:
-    app.kubernetes.io/instance: assistance-job-01
-    environment: development
-    service: cronjob
-  managedFields:
 spec:
   concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 3
@@ -19,7 +14,6 @@ spec:
         environment: development
         metadata:
           creationTimestamp: null
-        service: cronjob
         spec:
           containers:
               image: 341852639037.dkr.ecr.us-east-1.amazonaws.com/assistance-job:latest
