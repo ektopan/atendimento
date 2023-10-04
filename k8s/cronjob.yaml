@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   generation: 1
   labels:
-    app.kubernetes.io/instance: assistance-job-01
+    app.kubernetes.io/instance: assistance-job-02
     environment: development
     service: cronjob
   managedFields:
@@ -45,7 +45,7 @@ metadata:
       manager: argocd-application-controller
       operation: Update
       time: '2023-10-04T16:35:01Z'
-  name: assistance-job-01
+  name: assistance-job-02
   namespace: atendimento
   resourceVersion: '67089334'
   uid: 8fd9f55a-d269-4b1c-a54a-e35b8b683784
