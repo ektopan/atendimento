@@ -4,15 +4,12 @@ metadata:
   name: assistance-job-0201
   namespace: atendimento
 spec:
-  concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 3
   jobTemplate:
     metadata:
       creationTimestamp: null
     spec:
       template:
-        metadata:
-          creationTimestamp: null
         spec:
           containers:
               image: 341852639037.dkr.ecr.us-east-1.amazonaws.com/assistance-job:latest
