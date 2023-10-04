@@ -9,7 +9,6 @@ metadata:
     service: cronjob
   managedFields:
 spec:
-  concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 3
   jobTemplate:
     metadata:
