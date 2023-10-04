@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: assistance-job-01
     environment: development
-    #service: cronjob
+    service: cronjob
   managedFields:
     - apiVersion: batch/v1
       fieldsType: FieldsV1
