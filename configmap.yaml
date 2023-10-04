@@ -1,0 +1,32 @@
+apiVersion: v1
+data:
+  APP_DOMAIN: es-assistances
+  APP_NAME: assistance_job
+  DATABASE_HOST: LST_I4TOO_HML
+  DATABASE_NAME: EngenhariaDados
+  FILTER_DAYS: '1'
+  LOG_LEVEL: INFO
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/instance: assistance-job-01
+  managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:data:
+          .: {}
+          f:APP_DOMAIN: {}
+          f:APP_NAME: {}
+          f:DATABASE_HOST: {}
+          f:DATABASE_NAME: {}
+          f:FILTER_DAYS: {}
+          f:LOG_LEVEL: {}
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/instance: {}
+      manager: argocd-application-controller
+      operation: Update
+  name: assistance-job-01
+  namespace: atendimento
