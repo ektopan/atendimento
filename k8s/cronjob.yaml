@@ -16,7 +16,6 @@ spec:
       creationTimestamp: null
     spec:
       template:
-        environment: development
         metadata:
           creationTimestamp: null
         service: cronjob
