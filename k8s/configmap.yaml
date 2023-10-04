@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: assistance-job-01
+  namespace: atendimento
+data:
+  LOG_LEVEL: "INFO"
+  APP_NAME: "assistance_job"
+  APP_DOMAIN: "es-assistances"
+  DATABASE_HOST: "LST_I4TOO_HML"
+  DATABASE_NAME: "EngenhariaDados"
+  FILTER_DAYS: "1"

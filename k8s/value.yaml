@@ -1,0 +1,55 @@
+replicaCount: 1
+
+image:
+  pullPolicy: IfNotPresent
+
+envEnabled: true
+env:
+  - name: "LOG_LEVEL"
+    value: "INFO"
+  - name: "APP_NAME"
+    value: "assistance_job"
+  - name: "APP_DOMAIN"
+    value: "es-assistances"
+  - name: "DATABASE_HOST"
+    value: "LST_I4TOO_HML"
+  - name: "DATABASE_NAME"
+    value: "EngenhariaDados"
+  - name: "FILTER_DAYS"
+    value: "1"
+
+secretEnabled: true
+secret:
+  - name: "DATABASE_USER"
+    key: "DATABASE_USER"
+  - name: "DATABASE_PASSWORD"
+    key: "DATABASE_PASSWORD"
+  - name: "RABBITMQ_URI"
+    key: "RABBITMQ_URI"
+
+resource:
+  limits:
+    memory: 256Mi
+    cpu: 100m
+  requests:
+    memory: 128Mi
+    cpu: 50m
+
+service:
+  type: ClusterIP
+  port: 80
+  name: http
+
+dnsEnabled: false
+
+dnsPolicy: None
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 2
+  cpuEnabled: true
+  targetCPUUtilizationPercentage: 80
+  memoryEnabled: false
+
+scheduleExpression: "\"0 7 * * *\""
