@@ -66,8 +66,8 @@ spec:
             - envFrom:
                 - configMapRef:
                     name: assistance-job-01
-                - secretRef:
-                    name: assistance-job-01
+                #- secretRef:
+                #    name: assistance-job-01
               image: >-
                 341852639037.dkr.ecr.us-east-1.amazonaws.com/assistance-job:latest
               imagePullPolicy: IfNotPresent
