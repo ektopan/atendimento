@@ -1,4 +1,4 @@
-apiVersion: batch/v1
+apiVersion: batch
 kind: CronJob
 metadata:
   name: assistance-job-02
