@@ -1,7 +1,7 @@
 apiVersion: batch
 kind: CronJob
 metadata:
-  name: assistance-job-02
+  name: assistance-job-0201
   namespace: atendimento
 spec:
   concurrencyPolicy: Forbid
