@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: assistance-job-02
+  name: assistance-job-0202
   namespace: atendimento
 spec:
   failedJobsHistoryLimit: 3
