@@ -1,87 +1,19 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  generation: 1
-  labels:
-    app.kubernetes.io/instance: assistance-job-01
-    environment: development
-    service: cronjob
-  managedFields:
-    - apiVersion: batch/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            .: {}
-            'f:app.kubernetes.io/instance': {}
-            'f:environment': {}
-            'f:service': {}
-        'f:spec':
-          'f:concurrencyPolicy': {}
-          'f:failedJobsHistoryLimit': {}
-          'f:jobTemplate':
-            'f:spec':
-              'f:template':
-                'f:spec':
-                  'f:containers':
-                    'k:{"name":"cronjob"}':
-                      .: {}
-                      'f:envFrom': {}
-                      'f:image': {}
-                      'f:imagePullPolicy': {}
-                      'f:name': {}
-                      'f:resources': {}
-                      'f:terminationMessagePath': {}
-                      'f:terminationMessagePolicy': {}
-                  'f:dnsPolicy': {}
-                  'f:restartPolicy': {}
-                  'f:schedulerName': {}
-                  'f:securityContext': {}
-                  'f:terminationGracePeriodSeconds': {}
-          'f:schedule': {}
-          'f:startingDeadlineSeconds': {}
-          'f:successfulJobsHistoryLimit': {}
-          'f:suspend': {}
-      manager: argocd-application-controller
-      operation: Update
-      time: '2023-10-04T16:35:01Z'
-  name: assistance-job-01
-  namespace: atendimento
-  resourceVersion: '67089334'
-  uid: 8fd9f55a-d269-4b1c-a54a-e35b8b683784
+  name: hello
 spec:
-  concurrencyPolicy: Forbid
-  failedJobsHistoryLimit: 3
+  schedule: "* * * * *"
   jobTemplate:
-    metadata:
-      creationTimestamp: null
     spec:
       template:
-        environment: development
-        metadata:
-          creationTimestamp: null
-        service: cronjob
         spec:
           containers:
-            - envFrom:
-                - configMapRef:
-                    name: assistance-job-01
-                #- secretRef:
-                #    name: assistance-job-01
-              image: >-
-                341852639037.dkr.ecr.us-east-1.amazonaws.com/assistance-job:latest
-              imagePullPolicy: IfNotPresent
-              name: cronjob
-              resources: {}
-              terminationMessagePath: /dev/termination-log
-              terminationMessagePolicy: File
-          dnsPolicy: ClusterFirst
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
           restartPolicy: OnFailure
-          schedulerName: default-scheduler
-          securityContext: {}
-          terminationGracePeriodSeconds: 30
-  schedule: 0 7 * * *
-  startingDeadlineSeconds: 240
-  successfulJobsHistoryLimit: 3
-  suspend: false
-status: {}
