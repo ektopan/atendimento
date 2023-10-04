@@ -1,10 +1,10 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: assistance-job-03
+  name: assistance-job-04
   namespace: atendimento
   labels:
-    app.kubernetes.io/instance: assistance-job-03
+    app.kubernetes.io/instance: assistance-job-04
     environment: development
     service: cronjob
   managedFields:
@@ -12,7 +12,6 @@ spec:
   jobTemplate:
     spec:
       template:
-        service: cronjob
         spec:
           containers:
           - name: cronjob
